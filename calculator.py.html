@@ -1,0 +1,264 @@
+<html>
+<head>
+<title>calculator.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #6897bb;}
+.s4 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+calculator.py</font>
+</center></td></tr></table>
+<pre><span class="s0">from </span><span class="s1">tkinter </span><span class="s0">import </span><span class="s1">*</span>
+<span class="s0">from </span><span class="s1">math </span><span class="s0">import </span><span class="s1">*</span>
+<span class="s0">import </span><span class="s1">tkinter.font </span><span class="s0">as </span><span class="s1">font</span>
+<span class="s1">root = Tk()</span>
+<span class="s1">root.title(</span><span class="s2">'                          Calculator'</span><span class="s1">)</span>
+<span class="s1">root.geometry(</span><span class="s2">'300x400'</span><span class="s1">)</span>
+<span class="s1">root.resizable(</span><span class="s0">False, False</span><span class="s1">)</span>
+<span class="s1">top = Frame(root)</span>
+<span class="s1">top.pack()</span>
+<span class="s1">Font1 = font.Font(family=</span><span class="s2">'Helvetica'</span><span class="s0">, </span><span class="s1">size=</span><span class="s3">15</span><span class="s1">)</span>
+<span class="s1">Font2 = font.Font(family=</span><span class="s2">'TimeNewRoman' </span><span class="s0">, </span><span class="s1">size = </span><span class="s3">20</span><span class="s1">)</span>
+
+
+<span class="s1">input = Text(top</span><span class="s0">,  </span><span class="s1">height=</span><span class="s3">1</span><span class="s0">, </span><span class="s1">width=</span><span class="s3">100</span><span class="s0">, </span><span class="s1">bg=</span><span class="s2">&quot;light green&quot; </span><span class="s0">, </span><span class="s1">font = Font2)</span>
+<span class="s1">input.pack()</span>
+
+<span class="s0">def </span><span class="s1">operation():</span>
+
+        <span class="s1">INPUT = input.get(</span><span class="s2">&quot;1.0&quot;</span><span class="s0">, </span><span class="s2">&quot;end-1c&quot;</span><span class="s1">) </span><span class="s4">#Takes input from display</span>
+        <span class="s1">length = len(INPUT)</span>
+        <span class="s1">print(INPUT) </span><span class="s4">#Prints it on the screen for validation</span>
+        <span class="s1">INPUT = INPUT.replace(</span><span class="s2">&quot;^&quot; </span><span class="s0">, </span><span class="s2">&quot;**&quot;</span><span class="s1">)</span>
+
+        <span class="s1">input.delete(</span><span class="s2">'1.0'</span><span class="s0">, </span><span class="s1">END)</span><span class="s4">#Deletes the past input</span>
+
+
+
+
+        <span class="s1">input.insert(END</span><span class="s0">, </span><span class="s1">eval(INPUT))</span><span class="s4">#Inserts the new evaluated answer , eval takes string and turns it into an operation</span>
+
+<span class="s0">def </span><span class="s1">fullclear():</span>
+    <span class="s1">input.delete(</span><span class="s2">'1.0'</span><span class="s0">, </span><span class="s1">END)</span>
+
+<span class="s4"># def display_number(text, number):</span>
+<span class="s4">#     text.insert(END, number)</span>
+
+
+
+<span class="s4"># def equal_click(item):</span>
+<span class="s4">#     input_text = &quot;&quot;</span>
+<span class="s4">#     global INPUT</span>
+<span class="s4">#     result = str(eval(INPUT))</span>
+<span class="s4">#     input_text.set(result)</span>
+<span class="s4">#     INPUT = &quot;&quot;</span>
+
+<span class="s1">INPUT = </span><span class="s2">&quot;&quot;</span>
+
+
+<span class="s4">########################Oparators######################</span>
+<span class="s0">def </span><span class="s1">faddition(input</span><span class="s0">, </span><span class="s1">add):</span>
+    <span class="s1">input.insert(END</span><span class="s0">, </span><span class="s1">add)</span>
+
+
+<span class="s0">def </span><span class="s1">fsubstraction(input</span><span class="s0">, </span><span class="s1">sub):</span>
+    <span class="s1">input.insert(END</span><span class="s0">, </span><span class="s1">sub)</span>
+
+
+<span class="s0">def </span><span class="s1">fdivission(input</span><span class="s0">, </span><span class="s1">div):</span>
+    <span class="s1">input.insert(END</span><span class="s0">, </span><span class="s1">div)</span>
+
+
+<span class="s0">def </span><span class="s1">fmultiplication(input</span><span class="s0">, </span><span class="s1">mul):</span>
+    <span class="s1">input.insert(END</span><span class="s0">, </span><span class="s1">mul)</span>
+
+
+<span class="s0">def </span><span class="s1">fmodulus(input</span><span class="s0">, </span><span class="s1">mod):</span>
+    <span class="s1">input.insert(END</span><span class="s0">, </span><span class="s1">mod)</span>
+
+
+<span class="s0">def </span><span class="s1">fexponent(input</span><span class="s0">, </span><span class="s1">ex):</span>
+    <span class="s1">input.insert(END</span><span class="s0">, </span><span class="s1">ex)</span>
+
+
+<span class="s0">def </span><span class="s1">fequals(input</span><span class="s0">, </span><span class="s1">eq):</span>
+    <span class="s1">input.insert(END</span><span class="s0">, </span><span class="s1">eq)</span>
+
+<span class="s0">def </span><span class="s1">froot(input</span><span class="s0">, </span><span class="s1">root):</span>
+    <span class="s1">input.insert(END </span><span class="s0">, </span><span class="s1">root)</span>
+
+<span class="s0">def </span><span class="s1">rparenthesis(input</span><span class="s0">, </span><span class="s1">rpar):</span>
+    <span class="s1">input.insert(END </span><span class="s0">, </span><span class="s1">rpar)</span>
+
+<span class="s0">def </span><span class="s1">lparenthesis(input</span><span class="s0">, </span><span class="s1">lpar):</span>
+    <span class="s1">input.insert(END </span><span class="s0">, </span><span class="s1">lpar)</span>
+
+<span class="s0">def </span><span class="s1">fsin(input</span><span class="s0">, </span><span class="s1">sin):</span>
+    <span class="s1">input.insert(END </span><span class="s0">, </span><span class="s1">sin)</span>
+
+<span class="s0">def </span><span class="s1">fcos(input</span><span class="s0">, </span><span class="s1">cos):</span>
+    <span class="s1">input.insert(END </span><span class="s0">, </span><span class="s1">cos)</span>
+
+<span class="s0">def </span><span class="s1">ftan(input</span><span class="s0">, </span><span class="s1">tan):</span>
+    <span class="s1">input.insert(END </span><span class="s0">, </span><span class="s1">tan)</span>
+<span class="s4">########################################################</span>
+<span class="s4">########################## Numbers ############################</span>
+
+
+<span class="s0">def </span><span class="s1">num0(input</span><span class="s0">, </span><span class="s1">num0):</span>
+    <span class="s1">input.insert(END</span><span class="s0">, </span><span class="s1">num0)</span>
+
+
+<span class="s0">def </span><span class="s1">num1(input</span><span class="s0">, </span><span class="s1">num1):</span>
+    <span class="s1">input.insert(END</span><span class="s0">, </span><span class="s1">num1)</span>
+
+
+<span class="s0">def </span><span class="s1">num2(input</span><span class="s0">, </span><span class="s1">num2):</span>
+    <span class="s1">input.insert(END</span><span class="s0">, </span><span class="s1">num2)</span>
+
+
+<span class="s0">def </span><span class="s1">num3(input</span><span class="s0">, </span><span class="s1">num3):</span>
+    <span class="s1">input.insert(END</span><span class="s0">, </span><span class="s1">num3)</span>
+
+
+<span class="s0">def </span><span class="s1">num4(input</span><span class="s0">, </span><span class="s1">num4):</span>
+    <span class="s1">input.insert(END</span><span class="s0">, </span><span class="s1">num4)</span>
+
+
+<span class="s0">def </span><span class="s1">num5(input</span><span class="s0">, </span><span class="s1">num5):</span>
+    <span class="s1">input.insert(END</span><span class="s0">, </span><span class="s1">num5)</span>
+
+
+<span class="s0">def </span><span class="s1">num6(input</span><span class="s0">, </span><span class="s1">num6):</span>
+    <span class="s1">input.insert(END</span><span class="s0">, </span><span class="s1">num6)</span>
+
+
+<span class="s0">def </span><span class="s1">num7(input</span><span class="s0">, </span><span class="s1">num7):</span>
+    <span class="s1">input.insert(END</span><span class="s0">, </span><span class="s1">num7)</span>
+
+
+<span class="s0">def </span><span class="s1">num8(input</span><span class="s0">, </span><span class="s1">num8):</span>
+    <span class="s1">input.insert(END</span><span class="s0">, </span><span class="s1">num8)</span>
+
+
+<span class="s0">def </span><span class="s1">num9(input</span><span class="s0">, </span><span class="s1">num9):</span>
+    <span class="s1">input.insert(END</span><span class="s0">, </span><span class="s1">num9)</span>
+
+<span class="s0">def </span><span class="s1">dec(input</span><span class="s0">, </span><span class="s1">dec):</span>
+    <span class="s1">input.insert(END</span><span class="s0">, </span><span class="s1">dec)</span>
+<span class="s4">##############################################################</span>
+<span class="s4">####################NUMBER BUTTONS###################################</span>
+<span class="s1">number0= Button(root</span><span class="s0">, </span><span class="s1">text=</span><span class="s2">'0'</span><span class="s0">, </span><span class="s1">width=</span><span class="s3">5</span><span class="s0">, </span><span class="s1">height=</span><span class="s3">1</span><span class="s0">, </span><span class="s1">command=</span><span class="s0">lambda</span><span class="s1">: num0(input</span><span class="s0">, </span><span class="s2">&quot;0&quot;</span><span class="s1">))</span>
+<span class="s1">number0.place(x=</span><span class="s3">80</span><span class="s0">, </span><span class="s1">y=</span><span class="s3">250</span><span class="s1">)</span>
+<span class="s1">number0[</span><span class="s2">'font'</span><span class="s1">] = Font1</span>
+
+<span class="s1">number1= Button(root</span><span class="s0">, </span><span class="s1">text=</span><span class="s2">'1'</span><span class="s0">, </span><span class="s1">width=</span><span class="s3">5</span><span class="s0">, </span><span class="s1">height=</span><span class="s3">1</span><span class="s0">, </span><span class="s1">command=</span><span class="s0">lambda</span><span class="s1">: num1(input</span><span class="s0">, </span><span class="s2">&quot;1&quot;</span><span class="s1">))</span>
+<span class="s1">number1.place(x=</span><span class="s3">10</span><span class="s0">, </span><span class="s1">y=</span><span class="s3">100</span><span class="s1">)</span>
+<span class="s1">number1[</span><span class="s2">'font'</span><span class="s1">] = Font1</span>
+
+<span class="s1">number2= Button(root</span><span class="s0">, </span><span class="s1">text=</span><span class="s2">'2'</span><span class="s0">, </span><span class="s1">width=</span><span class="s3">5</span><span class="s0">, </span><span class="s1">height=</span><span class="s3">1</span><span class="s0">, </span><span class="s1">command=</span><span class="s0">lambda</span><span class="s1">: num2(input</span><span class="s0">, </span><span class="s2">&quot;2&quot;</span><span class="s1">))</span>
+<span class="s1">number2.place(x=</span><span class="s3">80</span><span class="s0">, </span><span class="s1">y=</span><span class="s3">100</span><span class="s1">)</span>
+<span class="s1">number2[</span><span class="s2">'font'</span><span class="s1">] = Font1</span>
+
+<span class="s1">number3= Button(root</span><span class="s0">, </span><span class="s1">text=</span><span class="s2">'3'</span><span class="s0">, </span><span class="s1">width=</span><span class="s3">5</span><span class="s0">, </span><span class="s1">height=</span><span class="s3">1</span><span class="s0">, </span><span class="s1">command=</span><span class="s0">lambda</span><span class="s1">: num3(input</span><span class="s0">, </span><span class="s2">&quot;3&quot;</span><span class="s1">))</span>
+<span class="s1">number3.place(x=</span><span class="s3">150</span><span class="s0">, </span><span class="s1">y=</span><span class="s3">100</span><span class="s1">)</span>
+<span class="s1">number3[</span><span class="s2">'font'</span><span class="s1">] = Font1</span>
+
+<span class="s1">number4= Button(root</span><span class="s0">, </span><span class="s1">text=</span><span class="s2">'4'</span><span class="s0">, </span><span class="s1">width=</span><span class="s3">5</span><span class="s0">, </span><span class="s1">height=</span><span class="s3">1</span><span class="s0">, </span><span class="s1">command=</span><span class="s0">lambda</span><span class="s1">: num4(input</span><span class="s0">, </span><span class="s2">&quot;4&quot;</span><span class="s1">))</span>
+<span class="s1">number4.place(x=</span><span class="s3">10</span><span class="s0">, </span><span class="s1">y=</span><span class="s3">150</span><span class="s1">)</span>
+<span class="s1">number4[</span><span class="s2">'font'</span><span class="s1">] = Font1</span>
+
+<span class="s1">number5= Button(root</span><span class="s0">, </span><span class="s1">text=</span><span class="s2">'5'</span><span class="s0">, </span><span class="s1">width=</span><span class="s3">5</span><span class="s0">, </span><span class="s1">height=</span><span class="s3">1</span><span class="s0">, </span><span class="s1">command=</span><span class="s0">lambda</span><span class="s1">: num5(input</span><span class="s0">, </span><span class="s2">&quot;5&quot;</span><span class="s1">))</span>
+<span class="s1">number5.place(x=</span><span class="s3">80</span><span class="s0">, </span><span class="s1">y=</span><span class="s3">150</span><span class="s1">)</span>
+<span class="s1">number5[</span><span class="s2">'font'</span><span class="s1">] = Font1</span>
+
+<span class="s1">number6= Button(root</span><span class="s0">, </span><span class="s1">text=</span><span class="s2">'6'</span><span class="s0">, </span><span class="s1">width=</span><span class="s3">5</span><span class="s0">, </span><span class="s1">height=</span><span class="s3">1</span><span class="s0">, </span><span class="s1">command=</span><span class="s0">lambda</span><span class="s1">: num6(input</span><span class="s0">, </span><span class="s2">&quot;6&quot;</span><span class="s1">))</span>
+<span class="s1">number6.place(x=</span><span class="s3">150</span><span class="s0">, </span><span class="s1">y=</span><span class="s3">150</span><span class="s1">)</span>
+<span class="s1">number6[</span><span class="s2">'font'</span><span class="s1">] = Font1</span>
+
+<span class="s1">number7= Button(root</span><span class="s0">, </span><span class="s1">text=</span><span class="s2">'7'</span><span class="s0">, </span><span class="s1">width=</span><span class="s3">5</span><span class="s0">, </span><span class="s1">height=</span><span class="s3">1</span><span class="s0">, </span><span class="s1">command=</span><span class="s0">lambda</span><span class="s1">: num7(input</span><span class="s0">, </span><span class="s2">&quot;7&quot;</span><span class="s1">))</span>
+<span class="s1">number7.place(x=</span><span class="s3">10</span><span class="s0">, </span><span class="s1">y=</span><span class="s3">200</span><span class="s1">)</span>
+<span class="s1">number7[</span><span class="s2">'font'</span><span class="s1">] = Font1</span>
+
+<span class="s1">number8= Button(root</span><span class="s0">, </span><span class="s1">text=</span><span class="s2">'8'</span><span class="s0">, </span><span class="s1">width=</span><span class="s3">5</span><span class="s0">, </span><span class="s1">height=</span><span class="s3">1</span><span class="s0">, </span><span class="s1">command=</span><span class="s0">lambda</span><span class="s1">: num8(input</span><span class="s0">, </span><span class="s2">&quot;8&quot;</span><span class="s1">))</span>
+<span class="s1">number8.place(x=</span><span class="s3">80</span><span class="s0">, </span><span class="s1">y=</span><span class="s3">200</span><span class="s1">)</span>
+<span class="s1">number8[</span><span class="s2">'font'</span><span class="s1">] = Font1</span>
+
+<span class="s1">number9= Button(root</span><span class="s0">, </span><span class="s1">text=</span><span class="s2">'9'</span><span class="s0">, </span><span class="s1">width=</span><span class="s3">5</span><span class="s0">, </span><span class="s1">height=</span><span class="s3">1</span><span class="s0">, </span><span class="s1">command=</span><span class="s0">lambda</span><span class="s1">: num9(input</span><span class="s0">, </span><span class="s2">&quot;9&quot;</span><span class="s1">))</span>
+<span class="s1">number9.place(x=</span><span class="s3">150</span><span class="s0">, </span><span class="s1">y=</span><span class="s3">200</span><span class="s1">)</span>
+<span class="s1">number9[</span><span class="s2">'font'</span><span class="s1">] = Font1</span>
+
+<span class="s4">##########################################################################################</span>
+<span class="s4">########################################OPARATOR BUTTONS##################################</span>
+
+<span class="s1">addition = Button(root</span><span class="s0">, </span><span class="s1">text=</span><span class="s2">'+'</span><span class="s0">, </span><span class="s1">width=</span><span class="s3">5</span><span class="s0">, </span><span class="s1">height=</span><span class="s3">1</span><span class="s0">, </span><span class="s1">command=</span><span class="s0">lambda</span><span class="s1">: faddition(input</span><span class="s0">, </span><span class="s2">&quot;+&quot;</span><span class="s1">))</span>
+<span class="s1">addition.place(x=</span><span class="s3">220</span><span class="s0">, </span><span class="s1">y=</span><span class="s3">100</span><span class="s1">)</span>
+<span class="s1">addition[</span><span class="s2">'font'</span><span class="s1">] = Font1</span>
+
+<span class="s1">subtraction = Button(root</span><span class="s0">, </span><span class="s1">text=</span><span class="s2">'-'</span><span class="s0">, </span><span class="s1">width=</span><span class="s3">5</span><span class="s0">, </span><span class="s1">height=</span><span class="s3">1</span><span class="s0">, </span><span class="s1">command=</span><span class="s0">lambda</span><span class="s1">: fsubstraction(input</span><span class="s0">, </span><span class="s2">&quot;-&quot;</span><span class="s1">))</span>
+<span class="s1">subtraction.place(x=</span><span class="s3">220</span><span class="s0">, </span><span class="s1">y=</span><span class="s3">150</span><span class="s1">)</span>
+<span class="s1">subtraction[</span><span class="s2">'font'</span><span class="s1">] = Font1</span>
+
+<span class="s1">multiplication = Button(root</span><span class="s0">, </span><span class="s1">text=</span><span class="s2">'*'</span><span class="s0">, </span><span class="s1">width=</span><span class="s3">5</span><span class="s0">, </span><span class="s1">height=</span><span class="s3">1</span><span class="s0">, </span><span class="s1">command=</span><span class="s0">lambda</span><span class="s1">: fmultiplication(input</span><span class="s0">, </span><span class="s2">&quot;*&quot;</span><span class="s1">))</span>
+<span class="s1">multiplication.place(x=</span><span class="s3">220</span><span class="s0">, </span><span class="s1">y=</span><span class="s3">200</span><span class="s1">)</span>
+<span class="s1">multiplication[</span><span class="s2">'font'</span><span class="s1">] = Font1</span>
+
+<span class="s1">division = Button(root</span><span class="s0">, </span><span class="s1">text=</span><span class="s2">'/'</span><span class="s0">, </span><span class="s1">width=</span><span class="s3">5</span><span class="s0">, </span><span class="s1">height=</span><span class="s3">1</span><span class="s0">, </span><span class="s1">command=</span><span class="s0">lambda</span><span class="s1">: fdivission(input</span><span class="s0">, </span><span class="s2">&quot;/&quot;</span><span class="s1">))</span>
+<span class="s1">division.place(x=</span><span class="s3">220</span><span class="s0">, </span><span class="s1">y=</span><span class="s3">250</span><span class="s1">)</span>
+<span class="s1">division[</span><span class="s2">'font'</span><span class="s1">] = Font1</span>
+
+<span class="s1">modulus = Button(root</span><span class="s0">, </span><span class="s1">text=</span><span class="s2">'%'</span><span class="s0">, </span><span class="s1">width=</span><span class="s3">2</span><span class="s0">, </span><span class="s1">height=</span><span class="s3">2</span><span class="s0">, </span><span class="s1">command=</span><span class="s0">lambda</span><span class="s1">: fmodulus(input</span><span class="s0">, </span><span class="s2">&quot;%&quot;</span><span class="s1">))</span>
+<span class="s1">modulus.place(x=</span><span class="s3">180</span><span class="s0">, </span><span class="s1">y=</span><span class="s3">420</span><span class="s1">)</span>
+
+<span class="s1">exponent = Button(root</span><span class="s0">, </span><span class="s1">text=</span><span class="s2">'^'</span><span class="s0">, </span><span class="s1">width=</span><span class="s3">5</span><span class="s0">, </span><span class="s1">height=</span><span class="s3">1</span><span class="s0">, </span><span class="s1">command=</span><span class="s0">lambda</span><span class="s1">: fexponent(input</span><span class="s0">, </span><span class="s2">&quot;^&quot;</span><span class="s1">))</span>
+<span class="s1">exponent.place(x=</span><span class="s3">10 </span><span class="s0">, </span><span class="s1">y = </span><span class="s3">300</span><span class="s1">)</span>
+<span class="s1">exponent[</span><span class="s2">'font'</span><span class="s1">] = Font1</span>
+
+<span class="s1">equals = Button(root</span><span class="s0">, </span><span class="s1">text=</span><span class="s2">'='</span><span class="s0">, </span><span class="s1">width=</span><span class="s3">5</span><span class="s0">, </span><span class="s1">height=</span><span class="s3">1 </span><span class="s0">, </span><span class="s1">command  = </span><span class="s0">lambda</span><span class="s1">: operation())</span>
+<span class="s1">equals.place(x=</span><span class="s3">220</span><span class="s0">, </span><span class="s1">y=</span><span class="s3">300</span><span class="s1">)</span>
+<span class="s1">equals[</span><span class="s2">'font'</span><span class="s1">] = Font1</span>
+
+<span class="s1">decimal = Button(root</span><span class="s0">, </span><span class="s1">text=</span><span class="s2">'.'</span><span class="s0">, </span><span class="s1">width=</span><span class="s3">5</span><span class="s0">, </span><span class="s1">height=</span><span class="s3">1</span><span class="s0">, </span><span class="s1">command=</span><span class="s0">lambda</span><span class="s1">: dec(input</span><span class="s0">, </span><span class="s2">&quot;.&quot;</span><span class="s1">))</span>
+<span class="s1">decimal.place(x=</span><span class="s3">10</span><span class="s0">, </span><span class="s1">y=</span><span class="s3">250</span><span class="s1">)</span>
+<span class="s1">decimal[</span><span class="s2">'font'</span><span class="s1">] = Font1</span>
+
+<span class="s1">AC = Button(root</span><span class="s0">, </span><span class="s1">text=</span><span class="s2">'AC'</span><span class="s0">, </span><span class="s1">width=</span><span class="s3">5</span><span class="s0">, </span><span class="s1">height=</span><span class="s3">1</span><span class="s0">, </span><span class="s1">command=</span><span class="s0">lambda</span><span class="s1">: fullclear())</span>
+<span class="s1">AC.place(x=</span><span class="s3">150</span><span class="s0">, </span><span class="s1">y=</span><span class="s3">250</span><span class="s1">)</span>
+<span class="s1">AC[</span><span class="s2">'font'</span><span class="s1">] = Font1</span>
+
+<span class="s1">sroot = Button(root</span><span class="s0">, </span><span class="s1">text=</span><span class="s2">&quot;Root&quot;</span><span class="s0">, </span><span class="s1">command = </span><span class="s0">lambda</span><span class="s1">: froot(input </span><span class="s0">, </span><span class="s2">&quot;sqrt()&quot;</span><span class="s1">) )</span>
+<span class="s1">sroot.place(x=</span><span class="s3">150</span><span class="s0">, </span><span class="s1">y=</span><span class="s3">300</span><span class="s1">)</span>
+<span class="s1">sroot[</span><span class="s2">'font'</span><span class="s1">] = Font1</span>
+
+<span class="s1">rpar = Button(root</span><span class="s0">, </span><span class="s1">text=</span><span class="s2">&quot;)&quot;</span><span class="s0">, </span><span class="s1">command = </span><span class="s0">lambda</span><span class="s1">: rparenthesis(input </span><span class="s0">, </span><span class="s2">&quot;)&quot;</span><span class="s1">) )</span>
+<span class="s1">rpar.place(x=</span><span class="s3">120</span><span class="s0">, </span><span class="s1">y=</span><span class="s3">300</span><span class="s1">)</span>
+<span class="s1">rpar[</span><span class="s2">'font'</span><span class="s1">] = Font1</span>
+
+<span class="s1">lpar = Button(root</span><span class="s0">, </span><span class="s1">text=</span><span class="s2">&quot;(&quot;</span><span class="s0">, </span><span class="s1">command = </span><span class="s0">lambda</span><span class="s1">: lparenthesis(input </span><span class="s0">, </span><span class="s2">&quot;(&quot;</span><span class="s1">) )</span>
+<span class="s1">lpar.place(x=</span><span class="s3">80</span><span class="s0">, </span><span class="s1">y=</span><span class="s3">300</span><span class="s1">)</span>
+<span class="s1">lpar[</span><span class="s2">'font'</span><span class="s1">] = Font1</span>
+
+<span class="s4"># sin = Button(root, text=&quot;  sin  &quot;, command = lambda: fsin(input , &quot;sin()&quot;) )</span>
+<span class="s4"># sin.place(x=10, y=350)</span>
+<span class="s4"># sin['font'] = Font1</span>
+<span class="s4">#</span>
+<span class="s4"># cos = Button(root, text=&quot;  cos  &quot;, command = lambda: fcos(input , &quot;cos()&quot;) )</span>
+<span class="s4"># cos.place(x=120, y=350)</span>
+<span class="s4"># cos['font'] = Font1</span>
+<span class="s4">#</span>
+<span class="s4"># tan = Button(root, text=&quot;  tan  &quot;, command = lambda: ftan(input , &quot;tan()&quot;) )</span>
+<span class="s4"># tan.place(x=220, y=350)</span>
+<span class="s4"># tan['font'] = Font1</span>
+
+<span class="s1">root.mainloop()</span>
+</pre>
+</body>
+</html>
