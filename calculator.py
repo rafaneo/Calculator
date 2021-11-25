@@ -31,17 +31,7 @@ def operation():
 def fullclear():
     input.delete('1.0', END)
 
-# def display_number(text, number):
-#     text.insert(END, number)
 
-
-
-# def equal_click(item):
-#     input_text = ""
-#     global INPUT
-#     result = str(eval(INPUT))
-#     input_text.set(result)
-#     INPUT = ""
 
 INPUT = ""
 
@@ -227,7 +217,7 @@ rpar['font'] = Font1
 lpar = Button(root, text="(", command = lambda: lparenthesis(input , "(") )
 lpar.place(x=80, y=300)
 lpar['font'] = Font1
-
+#TBD
 # sin = Button(root, text="  sin  ", command = lambda: fsin(input , "sin()") )
 # sin.place(x=10, y=350)
 # sin['font'] = Font1
